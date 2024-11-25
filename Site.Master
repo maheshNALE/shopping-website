@@ -1,0 +1,186 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="masterpage3.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!--cart symbol added navigation bar-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+    
+    <style>
+    /* CSS styles for the navigation items */
+        .nav-item {
+            margin-right: 80px; /* Adjust this value to set the desired space */
+        }
+
+        /* Custom styles for specific navigation items */
+        .nav-item a.nav-link[href*="Home"] {
+        /* Add border to the left of the Home navigation link */
+        border: 2px solid transparent; /* Initially transparent border */
+        padding: 8px; /* Adjust padding to create space between border and text */
+        transition: border-color 0.3s; /* Smooth transition for border color change */
+        }
+        /* Change border color when hovering over the Home navigation link */
+        .nav-item a.nav-link[href*="Home"]:hover {
+        border-color: #ffffff; /* white border color */
+        }
+
+        /* Custom styles for specific navigation items */
+        .nav-item a.nav-link[href*="Mobile"] {
+        /* Add border to the left of the Home navigation link */
+        border: 2px solid transparent; /* Initially transparent border */
+        padding: 8px; /* Adjust padding to create space between border and text */
+        transition: border-color 0.3s; /* Smooth transition for border color change */
+        }
+        /* Change border color when hovering over the Home navigation link */
+        .nav-item a.nav-link[href*="Mobile"]:hover {
+        border-color: #ffffff; /* white border color */
+        }
+        
+         /* Custom styles for specific navigation items */
+        .nav-item a.nav-link[href*="Laptop"] {
+        /* Add border to the left of the Home navigation link */
+        border: 2px solid transparent; /* Initially transparent border */
+        padding: 8px; /* Adjust padding to create space between border and text */
+        transition: border-color 0.3s; /* Smooth transition for border color change */
+        }
+        /* Change border color when hovering over the Home navigation link */
+        .nav-item a.nav-link[href*="Laptop"]:hover {
+        border-color: #ffffff; /* white border color */
+        }
+        
+        /* Custom styles for specific navigation items */
+        .nav-item a.nav-link[href*="User"] {
+        /* Add border to the left of the Home navigation link */
+        border: 2px solid transparent; /* Initially transparent border */
+        padding: 8px; /* Adjust padding to create space between border and text */
+        transition: border-color 0.3s; /* Smooth transition for border color change */
+        }
+        /* Change border color when hovering over the Home navigation link */
+        .nav-item a.nav-link[href*="User"]:hover {
+        border-color: #ffffff; /* white border color */
+        }
+        
+
+         /* Custom styles for specific navigation items */
+        .nav-item a.nav-link[href*="Admin"] {
+        /* Add border to the left of the Home navigation link */
+        border: 2px solid transparent; /* Initially transparent border */
+        padding: 8px; /* Adjust padding to create space between border and text */
+        transition: border-color 0.3s; /* Smooth transition for border color change */
+        }
+        /* Change border color when hovering over the Home navigation link */
+        .nav-item a.nav-link[href*="Admin"]:hover {
+        border-color: #ffffff; /* white border color */
+        }
+        
+
+
+         /* Custom styles for specific navigation items */
+        .nav-item a.nav-link[href="cart.aspx"] {
+        display: inline-flex; /* Ensure elements are displayed inline */
+        align-items: center; /* Align items vertically */
+        text-decoration: none; /* Remove underline from link */
+        padding: 8px;
+        }
+
+        /* Add some space between the icon and text */
+        .nav-item a.nav-link[href="cart.aspx"] i {
+        margin-right: 5px; 
+        }
+
+        /* Add border and cursor style when hovering */
+        .nav-item a.nav-link[href="cart.aspx"]:hover {
+        border: 2px solid #ffffff; /* White border */
+        cursor: pointer; /* Change cursor to pointer */
+
+        }
+
+       
+
+
+        /* customize the navigation bar */
+        .navbar-custom {
+            background-color: #37475A !important; /* Light blue background color */
+            /*!important should override any other conflicting styles.*/
+            color: #ffffff; /* White text color */
+            font-weight: bold; /* Bold text */
+        }
+</style>
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" runat="server" href="~/"></a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item"><a class="nav-link" runat="server" href="Home.aspx"><t>Home</t></a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="Mobile.aspx"><t>Mobile</t></a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="Laptop.aspx">Laptop</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="User.aspx">User</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="Admin.aspx">Admin</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="addtocart.aspx">
+                                <i class="fas fa-shopping-cart"></i> <!-- Cart icon -->
+                                <span class="cart-text">Cart</span> <!-- Cart text -->
+                            </a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="show_Mob.aspx"></a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="show_Lap.aspx"></a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="buynow.aspx"></a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="payment.aspx"></a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="download.aspx"></a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer>
+                <p>&nbsp;</p>
+            </footer>
+        </div> 
+    
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
